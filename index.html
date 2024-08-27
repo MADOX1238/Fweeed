@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://i.pinimg.com/originals/e4/fa/06/e4fa061200efe8e8b35955892e984e60.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .login-container input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .login-container button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Welcome to Chat</h1>
+        <input type="text" id="username" placeholder="Enter your name" />
+        <button id="start-chat">Start Chat</button>
+    </div>
+
+    <script>
+        document.getElementById('start-chat').addEventListener('click', () => {
+            const username = document.getElementById('username').value.trim();
+            if (username) {
+                // Generate a random color for the user
+                const userColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+                localStorage.setItem('username', username);
+                localStorage.setItem('userColor', userColor);
+                window.location.href = 'chat.html';
+            }
+        });
+    </script>
+</body>
+</html>
